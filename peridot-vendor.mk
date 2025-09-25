@@ -1346,6 +1346,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     vendor.qti.diaghal-V1-ndk \
+    android.hardware.gatekeeperperidot \
     android.hardware.security.keymintperidot \
     btaudio_offload_if \
     com.qualcomm.qti.dpm.api@1.0 \
@@ -1434,6 +1435,7 @@ PRODUCT_PACKAGES += \
     libTxPwrJni \
     libVoiceSdk \
     libWlanServiceJni \
+    lib_android_keymaster_keymint_stock \
     lib_bt_lhdc \
     lib_misound_asc \
     libadm \

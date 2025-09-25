@@ -40,6 +40,32 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "android.hardware.gatekeeperperidot",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/android.hardware.gatekeeperperidot.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.security.keymint-V3-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "android.hardware.security.keymintperidot",
     owner: "xiaomi",
     strip: {
@@ -994,7 +1020,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/libqtigatekeeper.so",
             ],
             shared_libs: [
-                "android.hardware.gatekeeper-V1-ndk",
+                "android.hardware.gatekeeperperidot",
                 "libhardware",
                 "libbinder_ndk",
                 "libbase",
@@ -2793,6 +2819,33 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libbinder_ndk",
                 "vendor.qti.hardware.data.iwlandata-V1-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_android_keymaster_keymint_stock",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/lib_android_keymaster_keymint_stock.so",
+            ],
+            shared_libs: [
+                "android.hardware.security.keymint-V3-ndk",
+                "libbase",
+                "libhardware",
                 "libc++",
                 "libc",
                 "libm",
@@ -6197,7 +6250,7 @@ cc_prebuilt_library_shared {
                 "android.hardware.security.rkp-V3-ndk",
                 "android.hardware.security.secureclock-V1-ndk",
                 "android.hardware.security.sharedsecret-V1-ndk",
-                "lib_android_keymaster_keymint_utils",
+                "lib_android_keymaster_keymint_stock",
                 "libbase",
                 "libbinder",
                 "libcppbor_peridot",
@@ -40513,7 +40566,7 @@ cc_prebuilt_binary {
             shared_libs: [
                 "android.hardware.security.rkp-V3-ndk",
                 "android.hardware.security.sharedsecret-V1-ndk",
-                "lib_android_keymaster_keymint_utils",
+                "lib_android_keymaster_keymint_stock",
                 "android.se.omapi-V1-ndk",
                 "libbase",
                 "libbinder_ndk",
